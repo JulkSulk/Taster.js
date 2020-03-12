@@ -162,7 +162,7 @@
     Object.prototype.equal = (val) => typeof this === val || this instanceof val || this == val || this === val;
     Object.prototype.freeze = () => Object.freeze(this);
     Object.prototype.getConst = () => typeof this;
-    Object.prototype.null = () => this.equal(null);
+    Object.prototype.null = () => this === null;
     Object.prototype.isUndef = () => typeof this === 'undefined';
     Object.prototype.isFunction = () => typeof this === 'function';
     Object.prototype.isObject = () => this instanceof Object;
