@@ -39,7 +39,7 @@
     cached = () => {
         let cache = Object.create(null);
         return (str) => cache[str] ? true
-            : false;
+            : cache[str] = str;
     },
 
     clone = (val) => Object.create(val),
