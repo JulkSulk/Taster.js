@@ -46,7 +46,7 @@
 
     br = (a, b) => {},
 
-    isPrimitive = (val) => typeof val === 'number' || typeof val === 'string' || typeof val === 'boolean',
+    isPrimitive = (val) => typeof val.equal('number') || typeof val.equal('string') || typeof val.equal('boolean'),
 
     toRawType = (val) => val || 'undefinied',
 
@@ -125,10 +125,10 @@
         else if(a.isObject() && b.isObject()) {
         test(function () {
             if(a.isArray() && b.isArray()) {
-                if(a.length === b.length) {
+                if(a.length.equal(b.length)) {
                     let value = 0;
                     for(let i = (a.length - 1); i == 0; i--) {
-                        if(a[i] === b[i]) value++;
+                        if(a[i].equal(b[i])) value++;
                     }
                     if(value == a.length) return true;
                 }
@@ -142,7 +142,7 @@
 
     observe = (old) => {
         return (obj) => {
-            if(old !== obj) {
+            if(!old.equal(obj)) {
                 old = obj;
                 return true;
             } else return false;
