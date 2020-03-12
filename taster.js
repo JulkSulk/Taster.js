@@ -51,7 +51,7 @@
     toRawType = (val) => val || 'undefinied',
 
     toNumber = (val) => {
-        let v = val.isString() ? val
+        let v = val.isString() || val.isNumber() ? val
             : val.toString() instanceof String ? val.toString()
             : val;
         v = parseFloat(v);
