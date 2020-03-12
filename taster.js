@@ -60,7 +60,7 @@
     },
 
     toBoolean = (val) => {
-        let v = val.isBoolean() || val.isString() === true ? val
+        let v = val.isBoolean() || val.isString() ? val
             : val.toString();
         return v == 'true' || v == 'True' || v == true ? true
             : v == 'false' || v == 'False' || v == false ? false
@@ -83,7 +83,7 @@
     toArray = (str) => str.split(','),
 
     toDate = (val) => {
-        let v = val.isString() ? val
+        let v = val.isString() || val.isDate() ? val
             : val.toString();
         return new Date(v);
     },
