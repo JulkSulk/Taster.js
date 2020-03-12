@@ -21,9 +21,6 @@
     const
 
     exp = root,
-    os = navigator.appVersion,
-    browser = navigator.userAgent,
-
     json = JSON.stringify({
         title: 'Taster',
         version: '1.0.0',
@@ -31,6 +28,8 @@
         description: 'A pure-JavaScript, library used to making website apps.',
         license: 'MIT',
     }),
+    os = navigator.appVersion,
+    browser = navigator.userAgent,
 
     init = (data) => {
         document.querySelector('body').appendChild((document.createElement('data').innerHTML = data));
