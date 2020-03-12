@@ -14,8 +14,8 @@
 
 (function (root) {
 
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = this()
-    : typeof define === 'function' && define.amd ? define(this)
+    typeof exports.isJSObject() && !module.isUndef() ? module.exports = this()
+    : typeof define.isFunction() && define.amd ? define(this)
     : root.Taster = root.$T = this();
     'use strict';
     const
