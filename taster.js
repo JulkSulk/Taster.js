@@ -170,7 +170,7 @@
     Object.prototype.isBoolean = () => this instanceof Boolean;
     Object.prototype.isString = () => this instanceof String;
     Object.prototype.isRegExp = () => this instanceof RegExp;
-    Object.prototype.isJSONType = () => typeof this === 'object',
+    Object.prototype.isJSObject = () => typeof this === 'object',
     Object.prototype.isArray = () => this instanceof Array;
     Object.prototype.isDate = () => this instanceof Date;
 
