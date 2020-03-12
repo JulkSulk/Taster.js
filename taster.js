@@ -74,7 +74,7 @@
             : val.isNumber() || val.isBoolean() ? val + ''
             : val.isString() || val.isRegExp() ? val
             : val.isDate() ? val.getTime() + ''
-            : val.isArray() ? arr
+            : val.isArray() ? arr + ''
             : val;
     },
 
