@@ -151,7 +151,7 @@
 
     mapToEvent = (evt, fn, req) => {
         document.addEventListener(evt, function () {
-            if(req) fn();
+            if(req()) fn();
         });
     },
 
