@@ -45,8 +45,6 @@
 
     br = (a, b) => {},
 
-    isPrimitive = (val) => typeof val.equal('number') || typeof val.equal('string') || typeof val.equal('boolean'),
-
     toRawType = (val) => val || 'undefinied',
 
     toNumber = (val) => {
@@ -158,6 +156,7 @@
         //#tomake
     };
     
+    Object.prototype.isPrimitive = () => typeof this.equal('number') || typeof this.equal('string') || typeof this.equal('boolean'),
     Object.prototype.equal = (val) => typeof this === val || this instanceof val || this == val || this === val;
     Object.prototype.freeze = () => Object.freeze(this);
     Object.prototype.getConst = () => typeof this;
