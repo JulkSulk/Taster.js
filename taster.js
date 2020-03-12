@@ -21,7 +21,6 @@
     const
 
     exp = root,
-
     os = navigator.appVersion,
     browser = navigator.userAgent,
 
@@ -157,7 +156,7 @@
     },
 
     animate = (obj, { duration, x, y }) => {
-        //zrób to Juliuszu
+        //#tomake
     };
     
     Object.prototype.equal = (val) => typeof this === val || this instanceof val || this == val || this === val;
