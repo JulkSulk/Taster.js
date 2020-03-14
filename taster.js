@@ -14,13 +14,16 @@
 
 (function (root) {
 
-    typeof exports.isJSObject() && !module.isUndef() ? module.exports = this()
-    : typeof define.isFunction() && define.amd ? define(this)
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = this()
+    : typeof define === 'function' && define.amd ? define(this)
     : root.Taster = root.$T = this();
     'use strict';
     const
 
     exp = root,
+    os = navigator.appVersion,
+    browser = navigator.userAgent,
+
     json = JSON.stringify({
         title: 'Taster',
         version: '1.0.0',
@@ -28,8 +31,6 @@
         description: 'A pure-JavaScript, library used to making website apps.',
         license: 'MIT',
     }),
-    os = navigator.appVersion,
-    browser = navigator.userAgent,
 
     init = (data) => {
         document.querySelector('body').appendChild((document.createElement('data').innerHTML = data));
@@ -38,7 +39,7 @@
     cached = () => {
         let cache = Object.create(null);
         return (str) => cache[str] ? true
-            : cache[str] = str;
+            : false;
     },
 
     clone = (val) => Object.create(val),
@@ -85,10 +86,10 @@
         return new Date(v);
     },
 
-    addElement = (list, val, pose) => {
+    addElement = (list, pose, val) => {
         let length = list.length + 1,
         arr = new Array(length);
-        for(let i = 0; i == (length - 1); i++) {
+        for(let i = 0; i != (length - 1); i++) {
             if(i != (pose - 1)) arr[i] = val;
             else arr[i] = list[i];
         }
@@ -98,7 +99,7 @@
     removeElement = (list, pose) => {
         let length = list.length - 1,
         arr = new Array(length);
-        for(let i = 0; i == (length - 1); i++) {
+        for(let i = 0; i != (length - 1); i++) {
             if(i != pose) {
                 arr[i] = list[(list.length - i)];
                 i--;
@@ -155,8 +156,8 @@
     animate = (obj, { duration, x, y }) => {
         //#tomake
     };
-    
-    Object.prototype.isPrimitive = () => typeof this.equal('number') || typeof this.equal('string') || typeof this.equal('boolean'),
+
+    Object.prototype.isPrimitive = () => typeof this === 'number' || typeof this === 'boolean' || typeof this === 'string';
     Object.prototype.equal = (val) => typeof this === val || this instanceof val || this == val || this === val;
     Object.prototype.freeze = () => Object.freeze(this);
     Object.prototype.getConst = () => typeof this;
