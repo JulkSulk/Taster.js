@@ -125,7 +125,7 @@
             if(a.isArray() && b.isArray()) {
                 if(a.length.equal(b.length)) {
                     let value = 0;
-                    for(let i = (a.length - 1); i == 0; i--) {
+                    for(let i = (a.length - 1); i != 0; i--) {
                         if(a[i].equal(b[i])) value++;
                     }
                     if(value == a.length) return true;
