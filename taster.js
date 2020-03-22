@@ -12,7 +12,7 @@
  * 
  */
 
-(function (root, document) {
+(function (root, doc) {
 
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = this()
     : typeof define === 'function' && define.amd ? define(this)
@@ -33,12 +33,12 @@
     }),
 
     init = (data) => {
-        document.querySelector('body').appendChild((document.createElement('data').innerHTML = data));
+        doc.querySelector('body').appendChild((doc.createElement('data').innerHTML = data));
     },
 
     addRenderer = (renderer, { value }) => {
         init(null);
-        document.querySelector('data').appendChild((document.createElement('renderer').innerHTML = (renderer({ value }))));
+        doc.querySelector('data').appendChild((doc.createElement('renderer').innerHTML = (renderer({ value }))));
     },
 
     cached = () => {
