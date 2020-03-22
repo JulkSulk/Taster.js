@@ -12,7 +12,7 @@
  * 
  */
 
-(function (root) {
+(function (root, document) {
 
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = this()
     : typeof define === 'function' && define.amd ? define(this)
@@ -28,12 +28,17 @@
         title: 'Taster',
         version: '1.0.0',
         author: 'Juliusz Kowalik',
-        description: 'A pure-JavaScript, library used to making website apps.',
+        description: 'A pure-JavaScript, library make for use it to making website apps.',
         license: 'MIT',
     }),
 
     init = (data) => {
         document.querySelector('body').appendChild((document.createElement('data').innerHTML = data));
+    },
+
+    addRenderer = (renderer, { value }) => {
+        init(null);
+        document.querySelector('data').appendChild((document.createElement('renderer').innerHTML = (renderer({ value }))));
     },
 
     cached = () => {
@@ -67,12 +72,15 @@
 
     toString = (val) => {
         let arr;
-        if(val.isArray()) val.forEach(function (item) { arr += item });
+        if(val.isArray()) {
+            arr = new Array(val.length);
+            val.forEach(function (item, i) { arr[i] = item.toString() });
+        }
         return val.null() || val.isUndef() || val.isObject() ? ''
             : val.isNumber() || val.isBoolean() ? val + ''
             : val.isString() || val.isRegExp() ? val
             : val.isDate() ? val.getTime() + ''
-            : val.isArray() ? arr + ''
+            : val.isArray() ? arr
             : val;
     },
 
@@ -125,7 +133,7 @@
             if(a.isArray() && b.isArray()) {
                 if(a.length.equal(b.length)) {
                     let value = 0;
-                    for(let i = (a.length - 1); i != 0; i--) {
+                    for(let i = (a.length - 1); i == 0; i--) {
                         if(a[i].equal(b[i])) value++;
                     }
                     if(value == a.length) return true;
@@ -157,20 +165,20 @@
         //#tomake
     };
 
-    Object.prototype.isPrimitive = () => typeof this === 'number' || typeof this === 'boolean' || typeof this === 'string';
+    Object.prototype.isPrimitive = () => (typeof this === 'number' || typeof this === 'boolean' || typeof this === 'string');
     Object.prototype.equal = (val) => typeof this === val || this instanceof val || this == val || this === val;
     Object.prototype.freeze = () => Object.freeze(this);
     Object.prototype.getConst = () => typeof this;
     Object.prototype.null = () => this === null;
-    Object.prototype.isUndef = () => typeof this === 'undefined';
+    Object.prototype.isUndef = () => typeof this === 'undefinied';
     Object.prototype.isFunction = () => typeof this === 'function';
-    Object.prototype.isObject = () => this instanceof Object;
-    Object.prototype.isNumber = () => this instanceof Number;
-    Object.prototype.isBoolean = () => this instanceof Boolean;
-    Object.prototype.isString = () => this instanceof String;
-    Object.prototype.isRegExp = () => this instanceof RegExp;
-    Object.prototype.isJSObject = () => typeof this === 'object',
-    Object.prototype.isArray = () => this instanceof Array;
-    Object.prototype.isDate = () => this instanceof Date;
+    Object.prototype.isJSObject = () => typeof this === 'object';
+    Object.prototype.isArray = () => typeof this === 'array';
+    Object.prototype.isDate = () => typeof this === 'date';
+    Object.prototype.isObject = () => this === '[object Object]';
+    Object.prototype.isNumber = () => this === '[object Number]';
+    Object.prototype.isBoolean = () => this === '[object Boolean]';
+    Object.prototype.isString = () => this === '[object String]';
+    Object.prototype.isRegExp = () => this === '[object RegExp]';
 
-} (self))
+} (self, document));
