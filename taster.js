@@ -175,10 +175,10 @@
     Object.prototype.isJSObject = () => typeof this === 'object';
     Object.prototype.isArray = () => typeof this === 'array';
     Object.prototype.isDate = () => typeof this === 'date';
-    Object.prototype.isObject = () => this === '[object Object]';
-    Object.prototype.isNumber = () => this === '[object Number]';
-    Object.prototype.isBoolean = () => this === '[object Boolean]';
-    Object.prototype.isString = () => this === '[object String]';
-    Object.prototype.isRegExp = () => this === '[object RegExp]';
+    Object.prototype.isObject = () => typeof this === '[object Object]';
+    Object.prototype.isNumber = () => typeof this === '[object Number]';
+    Object.prototype.isBoolean = () => typeof this === '[object Boolean]';
+    Object.prototype.isString = () => typeof this === '[object String]';
+    Object.prototype.isRegExp = () => typeof this === '[object RegExp]';
 
 } (self, document));
