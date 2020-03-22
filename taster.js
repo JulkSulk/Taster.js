@@ -140,7 +140,8 @@
                 }
             }
             else if(a.isDate() && b.isDate()) return a.getTime().equal(b.getTime());
-            else return Object.keys(a).length.equal(Object.keys(b).length);
+            else if(Object.keys(a).length.equal(Object.keys(b).length)) return true;
+            else return false;
         });
         } else if (a.toString().equal(b.toString())) return true;
         else return false;
