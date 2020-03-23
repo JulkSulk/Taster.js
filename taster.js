@@ -169,7 +169,7 @@
     Object.prototype.null = () => this === null;
     Object.prototype.isUndef = () => typeof this === 'undefinied';
     Object.prototype.isFunction = () => typeof this === 'function';
-    Object.prototype.isJSObject = () => typeof this === 'object';
+    Object.prototype.isJSON = () => typeof this === 'object';
     Object.prototype.isArray = () => typeof this === 'array';
     Object.prototype.isDate = () => typeof this === 'date';
     Object.prototype.isObject = () => typeof this === '[object Object]';
