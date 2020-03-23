@@ -136,7 +136,7 @@
                     if(value == a.length) return true;
                 }
             }
-            else if(a.isDate() && b.isDate()) return a.getTime().equal(b.getTime());
+            else if(a.isDate() && b.isDate() && a.getTime().equal(b.getTime())) return true;
             else if(Object.keys(a).length.equal(Object.keys(b).length)) return true;
             else return false;
         });
@@ -164,7 +164,7 @@
     };
 
     Object.prototype.isPrimitive = () => (typeof this === 'number' || typeof this === 'boolean' || typeof this === 'string');
-    Object.prototype.equal = (val) => typeof this === val || this instanceof val || this == val || this === val;
+    Object.prototype.equal = (val) => (typeof this === val || this instanceof val || this == val || this === val);
     Object.prototype.freeze = () => Object.freeze(this);
     Object.prototype.getConst = () => typeof this;
     Object.prototype.null = () => this === null;
