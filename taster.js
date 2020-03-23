@@ -107,10 +107,9 @@
         let length = list.length - 1,
         arr = new Array(length);
         for(let i = 0; i != (length - 1); i++) {
-            if(i != pose) {
+            if(i != pose)
                 arr[i] = list[(list.length - i)];
-                i--;
-            }
+            else i++;
         };
         return arr;
     },
