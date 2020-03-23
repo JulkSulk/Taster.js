@@ -23,8 +23,7 @@
     exp = root,
     os = navigator.appVersion,
     browser = navigator.userAgent,
-
-    json = JSON.stringify({
+    notation = JSON.stringify({
         title: 'Taster',
         version: '1.0.0',
         author: 'Juliusz Kowalik',
