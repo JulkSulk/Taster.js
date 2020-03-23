@@ -54,8 +54,7 @@
 
     toNumber = (val) => {
         let v = val.isString() || val.isNumber() ? val
-            : val.toString() instanceof String ? val.toString()
-            : val;
+            : val.toString();
         return isNaN(parseFloat(v)) ? v
             : parseFloat(v);
     },
