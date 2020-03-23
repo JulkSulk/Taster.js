@@ -83,7 +83,7 @@
             : val;
     },
 
-    toObject = (val) => Object.create(val),
+    toObject = (val) => JSON.parse(val),
 
     toArray = (str) => str.split(','),
 
