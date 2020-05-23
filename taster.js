@@ -3,7 +3,7 @@
  * All rights reserved.
  * Relased under the MIT license.
  * 
- * @version 1.0.0 // beta 1.0
+ * @version 1.0.0 // beta 1.0.1
  * @author Juliusz Kowalik
  * 
  * 
@@ -17,13 +17,16 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = this()
     : typeof define === 'function' && define.amd ? define(this)
     : root.Taster = root.$T = this();
-    'use strict';
-    const
 
-    exp = root,
+    'use strict';
+
+    const exp = root,
+
     os = navigator.appVersion,
+
     browser = navigator.userAgent,
-    notation = JSON.stringify({
+
+    note = JSON.stringify({
         title: 'Taster',
         version: '1.0.0',
         author: 'Juliusz Kowalik',
@@ -116,10 +119,11 @@
 
     test = (fn) => {
         try {
-            return fn();
+            fn();
         } catch (err) {
-            console.log(err);
+            return false;
         }
+        return true;
     },
 
     looseEqual = (val) => {
@@ -159,23 +163,37 @@
     },
 
     animate = (obj, { duration, x, y }) => {
-        //#tomake
+        //todo
     };
 
     Object.prototype.isPrimitive = () => (typeof this === 'number' || typeof this === 'boolean' || typeof this === 'string');
+
     Object.prototype.equal = (val) => (typeof this === val || this instanceof val || this == val || this === val);
+
     Object.prototype.freeze = () => Object.freeze(this);
+
     Object.prototype.getConst = () => typeof this;
+
     Object.prototype.null = () => this === null;
+
     Object.prototype.isUndef = () => typeof this === 'undefinied';
+
     Object.prototype.isFunction = () => typeof this === 'function';
+
     Object.prototype.isJSON = () => typeof this === 'object';
+
     Object.prototype.isArray = () => typeof this === 'array';
+
     Object.prototype.isDate = () => typeof this === 'date';
+
     Object.prototype.isObject = () => typeof this === '[object Object]';
+
     Object.prototype.isNumber = () => typeof this === '[object Number]';
+
     Object.prototype.isBoolean = () => typeof this === '[object Boolean]';
+
     Object.prototype.isString = () => typeof this === '[object String]';
+
     Object.prototype.isRegExp = () => typeof this === '[object RegExp]';
 
 } (self, document));
